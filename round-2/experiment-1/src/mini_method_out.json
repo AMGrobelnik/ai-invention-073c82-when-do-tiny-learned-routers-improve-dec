@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "experiment_id": "routing_experiment_1",
+    "timestamp": "2026-08-01T01:27:16.965430",
+    "method_name": "tiny_learned_router",
+    "method_description": "Logistic regression classifier on sentence embeddings to route between greedy and sampling decoding",
+    "config": {
+      "max_budget_usd": 10.0,
+      "num_examples_per_dataset": 125,
+      "total_examples_target": 500,
+      "embedding_model": "all-MiniLM-L6-v2",
+      "test_size": 0.3,
+      "cv_folds": 5,
+      "sampling_temperature": 0.7,
+      "sampling_num_samples": 1,
+      "greedy_temperature": 0.0,
+      "max_tokens": 512,
+      "models_to_test": [
+        "gpt-4o-mini"
+      ]
+    },
+    "results": {
+      "primary_metric": "routing_benefit",
+      "primary_value": 0.02200000000000002,
+      "baseline_comparison": {
+        "always_greedy": 0.564,
+        "always_sampling": 0.624,
+        "random_routing": 0.594,
+        "oracle_routing": 0.624
+      },
+      "hypothesis_supported": false,
+      "cost_usd": 0.0,
+      "classifier_accuracy": 0.5866666666666667,
+      "router_accuracy": 0.646
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "openai/gsm8k",
+      "examples": [
+        {
+          "input": "Question: A cafe has 9 indoor tables and 11 outdoor tables. Each indoor table has 10 chairs, and each outdoor table has 3 chairs. How many chairs are there in all?\nAnswer:",
+          "output": "123",
+          "metadata_task_type": "gsm8k",
+          "predict_greedy": "incorrect",
+          "predict_sampling": "incorrect",
+          "predict_router": "sampling"
+        },
+        {
+          "input": "Question: The teacher divided the students into four groups. One group had 5 students, another 8 students, and the third 7 students. If there were 24 total students, how many students were in the fourth group?\nAnswer:",
+          "output": "4",
+          "metadata_task_type": "gsm8k",
+          "predict_greedy": "correct",
+          "predict_sampling": "correct",
+          "predict_router": "sampling"
+        },
+        {
+          "input": "Question: While at Wizards Park, Kate buys 3 magic wands, one for herself and two for her friends. When she returns she sells the wands to her friends for $5 more than she paid. If she collected $130 after the sale, how much money did each wand cost?\nAnswer:",
+          "output": "60",
+          "metadata_task_type": "gsm8k",
+          "predict_greedy": "correct",
+          "predict_sampling": "incorrect",
+          "predict_router": "sampling"
+        }
+      ]
+    }
+  ]
+}

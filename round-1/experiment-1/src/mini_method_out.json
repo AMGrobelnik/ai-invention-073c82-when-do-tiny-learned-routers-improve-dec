@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "method_name": "tiny_router",
+    "description": "Test if tiny router can predict optimal decoding strategy",
+    "classifier_accuracy": 0.96,
+    "routing_accuracy": {
+      "greedy_only": 0.5,
+      "sampling_only": 0.54,
+      "router": 0.54
+    },
+    "total_cost_usd": 0.013461150000000014,
+    "num_train_prompts": 100,
+    "num_test_prompts": 50,
+    "oracle_label_distribution": {
+      "greedy_better": 8,
+      "sampling_better": 92
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "gsm8k_synthetic",
+      "examples": [
+        {
+          "input": "A craft store makes a third of its sales in the fabric section, a quarter of its sales in the jewelry section, and the rest in the stationery section. They made 36 sales today. How many sales were in the stationery section?",
+          "output": "The craft store made 36 / 3 = <<36/3=12>>12 sales in the fabric section.\nIt made 36 / 4 = <<36/4=9>>9 sales in the jewelry section.\nThus, there were 36 - 12 - 9 = <<36-12-9=15>>15 sales in the stationery section.\n#### 15",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        },
+        {
+          "input": "Marcy is a makeup artist and has agreed to do some makeup for her friend's wedding. The only makeup she has limited stock of is lip gloss so she counts how many tubes she needs. Each tube of lip gloss will hold enough lip gloss for 3 people's makeup. Marcy decides to bring 6 tubs of lip gloss, each of which holds 2 tubes of lip gloss, and this will be the exact amount she needs for everyone's makeup. How many people is Marcy painting with makeup?",
+          "output": "Marcy is bringing 6 tubs of lip gloss * 2 tubes of lip gloss per tub of lip gloss = <<6*2=12>>12 tubes of lip gloss.\nSo she must be applying makeup to 12 tubes of lip gloss * 3 people per tube of lip gloss = <<12*3=36>>36 people.\n#### 36",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        },
+        {
+          "input": "Ellie has found an old bicycle in a field and thinks it just needs some oil to work well again.  She needs 10ml of oil to fix each wheel and will need another 5ml of oil to fix the rest of the bike. How much oil does she need in total to fix the bike?",
+          "output": "Ellie needs 2 wheels * 10ml of oil per wheel = <<2*10=20>>20ml of oil.\nTo fix the rest of the bike as well, she needs 20 + 5 = <<20+5=25>>25ml of oil.\n#### 25",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        }
+      ]
+    }
+  ]
+}

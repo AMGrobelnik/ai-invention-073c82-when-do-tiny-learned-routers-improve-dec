@@ -1,0 +1,114 @@
+{
+  "answer": "## Research Findings: Adaptive Decoding and QA Datasets\n\n### 1. Adaptive Decoding Methods\n\nThe literature reveals four main approaches to adaptive decoding:\n\n**1.1 Reinforcement Learning Approaches**: The 'Learning Adaptive LLM Decoding' paper [1] introduces lightweight decoding adapters trained with reinforcement learning and verifiable terminal rewards. Their method formulates decoding as a contextual bandit problem at the sequence level and a POMDP at the token level. Experiments on MATH and CodeContests show 10.2% Pass@1 improvement under fixed token budgets [1].\n\n**1.2 Preference Optimization**: Meta's 'Adaptive Decoding via Latent Preference Optimization (LPO)' [2] adds a learnable layer to select sampling temperature dynamically. The method uses Latent Preference Optimization to train discrete latent variables (temperature choices) without requiring reward models or hand-designed heuristics [2]. It outperforms all fixed decoding temperatures across GSM8K, UltraFeedback, and Creative Story Writing tasks [2].\n\n**1.3 Attention-Based Heuristics**: The 'Mixture of Decoding (MoD)' paper [3] proposes an attention-inspired approach for vision-language models. It measures consistency between outputs from original and attended image tokens using Jensen-Shannon divergence, then applies complementary or contrastive decoding strategies accordingly [3].\n\n**1.4 Multi-Agent Methods**: 'Collab: Controlled Decoding using Mixture of Agents' [4] leverages multiple off-the-shelf LLMs, each aligned with specialized tasks. A Q-function guides token-level switching between agents, achieving 1.56x improvement in average reward over SOTA decoding strategies [4].\n\n### 2. Oracle Label Construction\n\nOracle labels for decoding strategy selection can be constructed as follows:\n\n**2.1 Decoding Configuration**:\n- Greedy decoding: temperature=0.0, top_p=1.0, do_sample=False [5]\n- Sampling decoding: temperature=0.7-1.0, top_p=0.9, num_samples=5-10 [5]\n\n**2.2 Correctness Verification**:\n- Exact match: Suitable for multiple-choice QA (MMLU, CommonsenseQA) and boolean questions (BoolQ) [6]\n- Programmatic verification: Essential for math problems (GSM8K, MATH) using libraries like math-verify [7]\n- Majority voting: Aggregate multiple samples to determine correct answer, using unbiased pass@k estimator [8]\n\n**2.3 Label Assignment**:\n- If greedy correct AND sampling incorrect \u2192 label = greedy (0)\n- If sampling correct AND greedy incorrect \u2192 label = sampling (1)\n- If both correct \u2192 label = greedy (prefer simpler strategy)\n- If both incorrect \u2192 exclude from training (ambiguous)\n\n### 3. Dataset Recommendations\n\n**3.1 MMLU (Measuring Massive Multitask Language Understanding)** [9]:\n- Task type: Multiple-choice QA across 57 subjects\n- Size: ~100k examples (100 test per subject)\n- Answer format: Clear A/B/C/D options enabling exact match verification\n- Availability: Excellent on HuggingFace (cais/mmlu) [9]\n- Rationale: Wide coverage, established benchmark, easy verification, moderate difficulty\n\n**3.2 GSM8K (Grade School Math 8K)** [10]:\n- Task type: Math word problems with step-by-step solutions\n- Size: 8.79k examples (train: 7.47k, test: 1.32k)\n- Answer format: Free-form but verifiable via programmatic methods\n- Availability: Widely used benchmark on HuggingFace (openai/gsm8k) [10]\n- Rationale: Moderate difficulty, clear answers, sampling helps exploration\n\n**3.3 MATH Dataset** [7]:\n- Task type: Competition-level mathematics problems\n- Size: 12.5k problems (train: 7.5k, test: 5k)\n- Answer format: Free-form with solutions, programmatic verification\n- Rationale: Challenging problems where sampling is beneficial, clear correct answers\n\n**3.4 Secondary Dataset Recommendations**:\n- **CommonsenseQA** [11]: 12.2k multiple-choice commonsense reasoning questions, good for commonsense tasks but may be too easy\n- **BoolQ** [12]: 15.9k boolean (yes/no) questions, simple verification but limited answer diversity  \n- **ARC (AI2 Reasoning Challenge)** [13]: 7.8k science multiple-choice questions, good reasoning benchmark with clear answers\n\n### 4. Prompt Embedding Extraction\n\nTwo main approaches identified [14, 16]:\n\n**4.1 Same-Model Embeddings**: Extract last hidden state from the model being evaluated using HuggingFace AutoModel with output_hidden_states=True [14]. Pooling strategies include CLS token, mean pooling, or max pooling [15].\n\n**4.2 Sentence Transformers**: Pre-trained models like all-MiniLM-L6-v2 (384 dimensions) [16] offer fast inference and good general-purpose embeddings.\n\n**Recommendation**: Start with all-MiniLM-L6-v2 for efficiency, then compare with same-model embeddings.\n\n### 5. Experimental Design\n\n**5.1 Router Architecture**: Simple MLP with 1-2 hidden layers (64-128 neurons) on prompt embeddings. Expected size: 10k-50k parameters.\n\n**5.2 Baselines**: Always greedy, always sampling (temp=0.7), random selection, majority voting (maj@k) [8].\n\n**5.3 Evaluation**: Report accuracy, Pass@1, and majority voting accuracy with 95% confidence intervals over 3+ independent runs.\n\n### Confidence Assessment\n\nHigh confidence findings:\n- Oracle label construction methodology is well-established [1, 2, 5, 8]\n- MMLU and GSM8K are suitable datasets with clear verification [9, 10]\n\nMedium confidence findings:\n- Optimal sample size for oracle labels (5-20 samples based on task difficulty)\n- Complementary strengths of greedy vs sampling across datasets\n\nLimitations:\n- No direct prior work on 'tiny router' concept\n- Actual complementarity needs empirical validation\n\n### Contradicting Evidence\n\nWhile most literature suggests adaptive decoding helps, some findings indicate:\n- Greedy decoding consistently outperforms sampling on certain extractive QA tasks [17]\n- For some datasets, fixed strategies may be near-optimal\n- Computational overhead may not justify gains in some scenarios",
+  "sources": [
+    {
+      "index": 1,
+      "url": "https://arxiv.org/html/2603.09065v1",
+      "title": "Learning Adaptive LLM Decoding",
+      "summary": "Introduces RL-based decoding adapters trained with verifiable rewards. Shows 10.2% Pass@1 improvement on MATH and CodeContests."
+    },
+    {
+      "index": 2,
+      "url": "https://arxiv.org/html/2411.09661v1",
+      "title": "Adaptive Decoding via Latent Preference Optimization",
+      "summary": "Meta research introducing learnable AdaptiveDecoder layer for dynamic temperature selection. Outperforms fixed temperatures on GSM8K and other tasks."
+    },
+    {
+      "index": 3,
+      "url": "https://arxiv.org/html/2505.17061v1",
+      "title": "Mixture of Decoding: An Attention-Inspired Adaptive Decoding Strategy",
+      "summary": "ACL 2025 paper proposing attention-based adaptive decoding for vision-language models. Uses JS divergence to select decoding strategies."
+    },
+    {
+      "index": 4,
+      "url": "https://arxiv.org/html/2503.21720v1",
+      "title": "Collab: Controlled Decoding using Mixture of Agents for LLM Alignment",
+      "summary": "Proposes multi-agent decoding with token-level switching guided by Q-function. Achieves 1.56x reward improvement over SOTA."
+    },
+    {
+      "index": 5,
+      "url": "https://github.com/vllm-project/vllm/discussions/17166",
+      "title": "Why temperature=0, top_p=1, seed=42 is still not enough",
+      "summary": "Discusses greedy decoding parameters (temperature=0, top_p=1.0) and deterministic decoding challenges."
+    },
+    {
+      "index": 6,
+      "url": "https://huggingface.co/datasets/cais/mmlu",
+      "title": "MMLU Dataset on HuggingFace",
+      "summary": "HuggingFace page for MMLU dataset showing dataset structure, splits, and multiple-choice format with 4 options."
+    },
+    {
+      "index": 7,
+      "url": "https://huggingface.co/datasets/openai/gsm8k",
+      "title": "GSM8K Dataset on HuggingFace",
+      "summary": "HuggingFace page for GSM8K math word problems dataset. Shows 8.79k examples and programmatic verification suitability."
+    },
+    {
+      "index": 8,
+      "url": "https://leehanchung.github.io/blogs/2025/09/08/pass-at-k/",
+      "title": "Statistics for AI/ML, Part 4: pass@k and Unbiased Estimator",
+      "summary": "Explains pass@k metric calculation and unbiased estimator for LLM evaluation. Discusses majority voting methods."
+    },
+    {
+      "index": 9,
+      "url": "https://huggingface.co/datasets/cais/mmlu/viewer/abstract_algebra",
+      "title": "MMLU Dataset Viewer - Abstract Algebra subset",
+      "summary": "Shows MMLU data format with question, subject, choices, and answer fields for exact match verification."
+    },
+    {
+      "index": 10,
+      "url": "https://huggingface.co/datasets/openai/gsm8k/viewer/main/train",
+      "title": "GSM8K Dataset Viewer - Training split",
+      "summary": "Shows GSM8K data format with question and answer fields for programmatic verification."
+    },
+    {
+      "index": 11,
+      "url": "https://aclanthology.org/N19-1421/",
+      "title": "CommonsenseQA: A Question Answering Challenge",
+      "summary": "ACL paper introducing CommonsenseQA dataset with 12,247 multiple-choice questions for commonsense reasoning."
+    },
+    {
+      "index": 12,
+      "url": "https://huggingface.co/datasets/boolq",
+      "title": "BoolQ Dataset on HuggingFace",
+      "summary": "HuggingFace page for BoolQ dataset with 15.9k yes/no questions. Simple verification but limited diversity."
+    },
+    {
+      "index": 13,
+      "url": "https://huggingface.co/datasets/allenai/ai2_arc",
+      "title": "ARC Dataset on HuggingFace",
+      "summary": "HuggingFace page for AI2 Reasoning Challenge with 7.8k science multiple-choice questions."
+    },
+    {
+      "index": 14,
+      "url": "https://github.com/huggingface/transformers/issues/38538",
+      "title": "Hidden states are different for model() and model.generate()",
+      "summary": "Discusses extracting last hidden states from HuggingFace models for embedding extraction."
+    },
+    {
+      "index": 15,
+      "url": "https://discuss.huggingface.co/t/common-practice-using-the-hidden-state-associated-with-cls-as-an-input-feature-for-a-classification-task/14003",
+      "title": "Pooling strategies discussion on HuggingFace",
+      "summary": "Discusses CLS pooling vs mean pooling vs max pooling for sentence embeddings."
+    },
+    {
+      "index": 16,
+      "url": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+      "title": "all-MiniLM-L6-v2 on HuggingFace",
+      "summary": "HuggingFace page for sentence-transformers model that maps sentences to 384-dimensional vectors."
+    },
+    {
+      "index": 17,
+      "url": "https://arxiv.org/html/2604.23443v2",
+      "title": "Revisiting Greedy Decoding for Visual Question Answering",
+      "summary": "arXiv paper showing greedy decoding consistently outperforms sampling on certain VQA datasets, contradicting assumption that sampling always helps."
+    }
+  ],
+  "follow_up_questions": [
+    "What is the actual distribution of prompts where greedy vs sampling show complementary strengths across MMLU subjects and GSM8K problems?",
+    "How does the optimal number of samples for oracle label construction vary with task difficulty and model size?",
+    "Can prompt embeddings from tiny models achieve sufficient quality for router decision-making compared to larger embedding models?"
+  ],
+  "summary": "This research provides a comprehensive survey of adaptive decoding methods, oracle label construction methodologies, and suitable QA datasets for the tiny router hypothesis. Four main approaches were identified in literature: RL-based, preference optimization, attention-based heuristics, and multi-agent methods. A detailed methodology for constructing oracle labels was developed using greedy and sampling decoding with correctness verification. Three primary dataset recommendations were made: MMLU, GSM8K, and MATH. Technical guidance on prompt embedding extraction and experimental design was provided.",
+  "title": "Adaptive decoding methods and QA datasets for tiny router research"
+}

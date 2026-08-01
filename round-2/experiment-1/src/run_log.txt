@@ -1,0 +1,79 @@
+00:55:08|INFO   |Starting routing experiment
+00:55:08|INFO   |Set memory limit to 26.3GB
+00:55:08|INFO   |Loading data from full_data_out.json
+00:55:08|INFO   |Dataset openai/gsm8k: 5 examples
+00:55:08|INFO   |Dataset allenai/ai2_arc: 5 examples
+00:55:08|INFO   |Dataset google/boolq: 5 examples
+00:55:08|INFO   |Dataset cais/mmlu: 5 examples
+00:55:08|INFO   |Total examples loaded: 20
+00:55:08|INFO   |Step 2: Generating oracle labels
+00:55:08|INFO   |Generating oracle labels for 20 examples
+00:56:51|INFO   |Processed 10/20, cost: $0.040
+00:58:01|INFO   |Processed 20/20, cost: $0.080
+00:58:01|INFO   |Generated 20 oracle labels, total cost: $0.080
+00:58:01|INFO   |Step 3: Extracting embeddings
+00:58:01|INFO   |Extracting embeddings for 20 prompts using all-MiniLM-L6-v2
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 6728.66it/s]
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.56it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.56it/s]
+00:58:06|INFO   |Saved embeddings to embeddings_cache/embeddings_20_all-MiniLM-L6-v2.npy
+00:58:06|INFO   |Step 4: Training classifier
+00:58:06|INFO   |Training classifier on 20 examples
+00:58:06|INFO   |Training logistic classifier
+/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/model_selection/_split.py:812: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  warnings.warn(
+/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/model_selection/_validation.py:489: FitFailedWarning: 
+1 fits failed out of a total of 5.
+The score on these train-test partitions for these parameters will be set to nan.
+If these failures are not expected, you can try to debug them by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+1 fits failed with the following error:
+Traceback (most recent call last):
+  File "/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/model_selection/_validation.py", line 856, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/base.py", line 1403, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py", line 1523, in fit
+    raise ValueError(
+ValueError: This solver needs samples of at least 2 classes in the data, but the data contains only one class: np.int64(1)
+
+  warnings.warn(some_fits_failed_message, FitFailedWarning)
+00:58:06|INFO   |logistic: CV accuracy=nan (+/- nan), Test accuracy=0.833, F1=0.758, ROC-AUC=0.600
+00:58:06|INFO   |Training mlp classifier
+/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/model_selection/_split.py:812: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  warnings.warn(
+00:58:07|INFO   |mlp: CV accuracy=0.867 (+/- 0.163), Test accuracy=0.833, F1=0.758, ROC-AUC=0.200
+00:58:07|INFO   |Training rf classifier
+/home/adrian/projects/ai-inventor/aii_data/users/uitest-20260731/runs/run_C4UvEedrrr_P/3_invention_loop/iter_2/gen_art/gen_art_experiment_1/.venv/lib/python3.12/site-packages/sklearn/model_selection/_split.py:812: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  warnings.warn(
+00:58:07|INFO   |rf: CV accuracy=0.933 (+/- 0.133), Test accuracy=0.833, F1=0.758, ROC-AUC=0.500
+00:58:07|INFO   |Step 5: Evaluating routing
+00:58:07|INFO   |Evaluating routing performance
+00:58:07|INFO   |Baselines: Greedy=0.850, Sampling=0.900, Random=0.875, Oracle=0.900
+00:58:07|INFO   |Router accuracy=0.900, Benefit=0.000
+00:58:07|INFO   |Step 6: Testing conditional hypothesis
+00:58:07|INFO   |Testing conditional hypothesis
+00:58:07|INFO   |Dataset openai/gsm8k: sampling_rate=0.800, routing_benefit=0.000
+00:58:07|INFO   |Dataset allenai/ai2_arc: sampling_rate=1.000, routing_benefit=0.000
+00:58:07|INFO   |Dataset google/boolq: sampling_rate=0.800, routing_benefit=0.000
+00:58:07|INFO   |Dataset cais/mmlu: sampling_rate=1.000, routing_benefit=0.000
+00:58:07|INFO   |Hypothesis supported: True
+00:58:07|INFO   |Step 7: Creating mixed datasets
+00:58:07|INFO   |Creating mixed datasets with controlled ratios
+00:58:07|WARNING|Not enough examples for ratio 0.1
+00:58:07|WARNING|Not enough examples for ratio 0.2
+00:58:07|WARNING|Not enough examples for ratio 0.3
+00:58:07|WARNING|Not enough examples for ratio 0.4
+00:58:07|WARNING|Not enough examples for ratio 0.5
+00:58:07|WARNING|Not enough examples for ratio 0.6
+00:58:07|WARNING|Not enough examples for ratio 0.7
+00:58:07|WARNING|Not enough examples for ratio 0.8
+00:58:07|WARNING|Not enough examples for ratio 0.9
+00:58:07|INFO   |Step 8: Creating visualizations
+00:58:07|INFO   |Creating visualizations
+00:58:07|INFO   |Saving results
+00:58:07|INFO   |Results saved to method_out.json
+00:58:07|INFO   |Experiment output saved to exp_gen_sol_out.json
+00:58:07|INFO   |Experiment completed successfully!

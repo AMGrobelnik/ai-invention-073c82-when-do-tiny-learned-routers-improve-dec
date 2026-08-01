@@ -1,0 +1,23 @@
+{
+  "experiment_id": "routing_experiment_1",
+  "timestamp": "2026-08-01T01:14:15.104643",
+  "method_name": "tiny_learned_router",
+  "method_description": "Logistic regression classifier on sentence embeddings to route between greedy and sampling decoding",
+  "results": {
+    "primary_metric": "routing_benefit",
+    "primary_value": 0.0,
+    "baseline_comparison": {
+      "always_greedy": 0.774,
+      "always_sampling": 0.78,
+      "random_routing": 0.777,
+      "oracle_routing": 0.78
+    },
+    "hypothesis_supported": false,
+    "cost_usd": 0.9860000000000008
+  },
+  "metrics": {
+    "classifier_accuracy": 0.78,
+    "classifier_f1": 0.6835955056179776,
+    "router_accuracy": 0.78
+  }
+}

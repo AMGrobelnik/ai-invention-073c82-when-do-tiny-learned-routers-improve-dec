@@ -1,0 +1,9 @@
+{
+  "test": "mini_dataset",
+  "num_examples": 12,
+  "embedding_shape": [
+    12,
+    384
+  ],
+  "status": "passed"
+}

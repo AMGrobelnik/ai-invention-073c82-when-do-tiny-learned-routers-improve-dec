@@ -1,0 +1,9 @@
+[project]
+name = "dataset-collection"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets==4.4.1",
+    "loguru",
+    "jsonschema"
+]

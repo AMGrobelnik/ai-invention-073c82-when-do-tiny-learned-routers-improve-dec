@@ -1,0 +1,111 @@
+{
+  "datasets": [
+    {
+      "dataset": "openai/gsm8k",
+      "examples": [
+        {
+          "input": "Question: Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. How many clips did Natalia sell altogether in April and May?\nAnswer:",
+          "output": "72",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_0"
+        },
+        {
+          "input": "Question: Weng earns $12 an hour for babysitting. Yesterday, she just did 50 minutes of babysitting. How much did she earn?\nAnswer:",
+          "output": "10",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_1"
+        },
+        {
+          "input": "Question: Betty is saving money for a new wallet which costs $100. Betty has only half of the money she needs. Her parents decided to give her $15 for that purpose, and her grandparents twice as much ...",
+          "output": "5",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_2"
+        }
+      ]
+    },
+    {
+      "dataset": "allenai/ai2_arc",
+      "examples": [
+        {
+          "input": "Question: George wants to warm his hands quickly by rubbing them. Which skin surface will produce the most heat?\nA. dry palms\nB. wet palms\nC. palms covered with oil\nD. palms covered with lotion\nAnswer...",
+          "output": "A",
+          "metadata_task_type": "science_reasoning",
+          "metadata_subject": "science",
+          "metadata_id": "arc_Mercury_SC_415702"
+        },
+        {
+          "input": "Question: Which of the following statements best explains why magnets usually stick to a refrigerator door?\nA. The refrigerator door is smooth.\nB. The refrigerator door contains iron.\nC. The refrigera...",
+          "output": "B",
+          "metadata_task_type": "science_reasoning",
+          "metadata_subject": "science",
+          "metadata_id": "arc_MCAS_2009_5_6516"
+        },
+        {
+          "input": "Question: A fold observed in layers of sedimentary rock most likely resulted from the\nA. cooling of flowing magma.\nB. converging of crustal plates.\nC. deposition of river sediments.\nD. solution of car...",
+          "output": "B",
+          "metadata_task_type": "science_reasoning",
+          "metadata_subject": "science",
+          "metadata_id": "arc_Mercury_7233695"
+        }
+      ]
+    },
+    {
+      "dataset": "google/boolq",
+      "examples": [
+        {
+          "input": "Question: do iran and afghanistan speak the same language\nAnswer (yes or no):",
+          "output": "yes",
+          "metadata_task_type": "boolean_questions",
+          "metadata_subject": "general_knowledge",
+          "metadata_id": "boolq_0",
+          "metadata_passage": "Persian (/\u02c8p\u025c\u02d0r\u0292\u0259n, -\u0283\u0259n/), also known by its endonym Farsi (\u0641\u0627\u0631\u0633\u06cc f\u0101rsi (f\u0252\u02d0\u027e\u02c8si\u02d0) ( listen)), is one of the Western Iranian languages within the Indo-Iranian branch of the Indo-European language family. It is primarily spoken in Iran, Afghanistan (officially known as Dari since 1958), and Tajikistan (officially known as Tajiki since the Soviet era), and some other regions which historically were Persianate societies and considered part of Greater Iran. It is written in the Persian alphabet, a modified variant of the Arabic script, which itself evolved from the Aramaic alphabet."
+        },
+        {
+          "input": "Question: do good samaritan laws protect those who help at an accident\nAnswer (yes or no):",
+          "output": "yes",
+          "metadata_task_type": "boolean_questions",
+          "metadata_subject": "general_knowledge",
+          "metadata_id": "boolq_1",
+          "metadata_passage": "Good Samaritan laws offer legal protection to people who give reasonable assistance to those who are, or who they believe to be, injured, ill, in peril, or otherwise incapacitated. The protection is intended to reduce bystanders' hesitation to assist, for fear of being sued or prosecuted for unintentional injury or wrongful death. An example of such a law in common-law areas of Canada: a good Samaritan doctrine is a legal principle that prevents a rescuer who has voluntarily helped a victim in distress from being successfully sued for wrongdoing. Its purpose is to keep people from being reluctant to help a stranger in need for fear of legal repercussions should they make some mistake in treatment. By contrast, a duty to rescue law requires people to offer assistance and holds those who fail to do so liable."
+        },
+        {
+          "input": "Question: is windows movie maker part of windows essentials\nAnswer (yes or no):",
+          "output": "yes",
+          "metadata_task_type": "boolean_questions",
+          "metadata_subject": "general_knowledge",
+          "metadata_id": "boolq_2",
+          "metadata_passage": "Windows Movie Maker (formerly known as Windows Live Movie Maker in Windows 7) is a discontinued video editing software by Microsoft. It is a part of Windows Essentials software suite and offers the ability to create and edit videos as well as to publish them on OneDrive, Facebook, Vimeo, YouTube, and Flickr."
+        }
+      ]
+    },
+    {
+      "dataset": "cais/mmlu",
+      "examples": [
+        {
+          "input": "Question: A lesion causing compression of the facial nerve at the stylomastoid foramen will cause ipsilateral\nA. paralysis of the facial muscles.\nB. paralysis of the facial muscles and loss of taste.\n...",
+          "output": "0",
+          "metadata_task_type": "multiple_choice",
+          "metadata_subject": "anatomy",
+          "metadata_id": "mmlu_anatomy_0"
+        },
+        {
+          "input": "Question: A \"dished face\" profile is often associated with\nA. a protruding mandible due to reactivation of the condylar cartilage by acromegaly.\nB. a recessive maxilla due to failure of elongation of ...",
+          "output": "1",
+          "metadata_task_type": "multiple_choice",
+          "metadata_subject": "anatomy",
+          "metadata_id": "mmlu_anatomy_1"
+        },
+        {
+          "input": "Question: Which of the following best describes the structure that collects urine in the body?\nA. Bladder\nB. Kidney\nC. Ureter\nD. Urethra\nAnswer:",
+          "output": "0",
+          "metadata_task_type": "multiple_choice",
+          "metadata_subject": "anatomy",
+          "metadata_id": "mmlu_anatomy_2"
+        }
+      ]
+    }
+  ]
+}
