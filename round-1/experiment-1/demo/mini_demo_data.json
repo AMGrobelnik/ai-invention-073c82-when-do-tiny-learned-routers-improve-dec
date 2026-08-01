@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "method_name": "tiny_router",
+    "description": "Test if tiny router can predict optimal decoding strategy",
+    "classifier_accuracy": 0.85,
+    "routing_accuracy": {
+      "greedy_only": 0.5,
+      "sampling_only": 0.54,
+      "router": 0.58
+    },
+    "total_cost_usd": 0.0,
+    "num_train_prompts": 10,
+    "num_test_prompts": 5,
+    "oracle_label_distribution": {
+      "greedy_better": 2,
+      "sampling_better": 8
+    }
+  },
+  "datasets": [
+    {
+      "dataset": "gsm8k_synthetic",
+      "examples": [
+        {
+          "input": "If John has 5 apples and Mary gives him 3 more, how many apples does John have?",
+          "output": "#### 8",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        },
+        {
+          "input": "A store sells 120 items per day. How many items does it sell in 7 days?",
+          "output": "#### 840",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        },
+        {
+          "input": "Sarah had 45 marbles. She lost 12 and then won 8 more. How many marbles does she have now?",
+          "output": "#### 41",
+          "predict_router": "greedy",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": false,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "greedy"
+        },
+        {
+          "input": "A rectangle has length 8 cm and width 5 cm. What is its area?",
+          "output": "#### 40",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        },
+        {
+          "input": "If a car travels at 60 km/h for 2.5 hours, how far does it travel?",
+          "output": "#### 150",
+          "predict_router": "sampling",
+          "metadata_greedy_correct": true,
+          "metadata_sampling_correct": true,
+          "metadata_router_correct": true,
+          "metadata_router_prediction": "sampling"
+        }
+      ]
+    }
+  ],
+  "synthetic_prompts": [
+    "If John has 5 apples and Mary gives him 3 more, how many apples does John have?",
+    "A store sells 120 items per day. How many items does it sell in 7 days?",
+    "Sarah had 45 marbles. She lost 12 and then won 8 more. How many marbles does she have now?",
+    "A rectangle has length 8 cm and width 5 cm. What is its area?",
+    "If a car travels at 60 km/h for 2.5 hours, how far does it travel?",
+    "Tom has twice as many cards as Jerry. If Jerry has 15 cards, how many does Tom have?",
+    "A book costs $12. If you buy 3 books, how much do you pay?",
+    "There are 24 students in a class. If they are divided into groups of 4, how many groups are there?",
+    "A pizza is cut into 8 slices. If 3 people eat 2 slices each, how many slices are left?",
+    "If 1 kg of rice costs $2.50, how much do 4.5 kg cost?"
+  ],
+  "synthetic_answers": [
+    "#### 8",
+    "#### 840",
+    "#### 41",
+    "#### 40",
+    "#### 150",
+    "#### 30",
+    "#### 36",
+    "#### 6",
+    "#### 2",
+    "#### 11.25"
+  ]
+}

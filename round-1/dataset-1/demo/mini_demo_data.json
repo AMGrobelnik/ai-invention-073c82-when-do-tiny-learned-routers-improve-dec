@@ -1,0 +1,44 @@
+{
+  "datasets": [
+    {
+      "dataset": "openai/gsm8k",
+      "examples": [
+        {
+          "input": "Question: Natalia sold clips to 48 of her friends in April, and then she sold half as many clips in May. How many clips did Natalia sell altogether in April and May?\nAnswer:",
+          "output": "72",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_0"
+        },
+        {
+          "input": "Question: Weng earns $12 an hour for babysitting. Yesterday, she just did 50 minutes of babysitting. How much did she earn?\nAnswer:",
+          "output": "10",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_1"
+        },
+        {
+          "input": "Question: Betty is saving money for a new wallet which costs $100. Betty has only half of the money she needs. Her parents decided to give her $15 for that purpose, and her grandparents twice as much as her parents. How much more money does Betty need to buy the wallet?\nAnswer:",
+          "output": "5",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_2"
+        },
+        {
+          "input": "Question: Julie is reading a 120-page book. Yesterday, she was able to read 12 pages and today, she read twice as many pages as yesterday. If she wants to read half of the remaining pages tomorrow, how many pages should she read?\nAnswer:",
+          "output": "42",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_3"
+        },
+        {
+          "input": "Question: James writes a 3-page letter to 2 different friends twice a week. How many pages does he write a year?\nAnswer:",
+          "output": "624",
+          "metadata_task_type": "math_reasoning",
+          "metadata_subject": "math",
+          "metadata_id": "gsm8k_4"
+        }
+      ]
+    }
+  ]
+}

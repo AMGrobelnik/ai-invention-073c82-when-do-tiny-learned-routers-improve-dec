@@ -1,0 +1,59 @@
+{
+  "datasets": [
+    {
+      "dataset": "openai/gsm8k",
+      "examples": [
+        {
+          "input": "Question: A cafe has 9 indoor tables and 11 outdoor tables. Each indoor table has 10 chairs, and each outdoor table has 3 chairs. How many chairs are there in all?\nAnswer:",
+          "output": "123",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: The teacher divided the students into four groups. One group had 5 students, another 8 students, and the third 7 students. If there were 24 total students, how many students were in the fourth group?\nAnswer:",
+          "output": "4",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: While at Wizards Park, Kate buys 3 magic wands, one for herself and two for her friends. When she returns she sells the wands to her friends for $5 more than she paid. If she collected $130 from her friends, how much did each wand cost at Wizards Park?\nAnswer:",
+          "output": "60",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: If a train travels 120 miles in 2 hours, what is its average speed in miles per hour?\nAnswer:",
+          "output": "60",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: Sarah has 15 apples. She gives 7 to John and 3 to Mary. How many apples does Sarah have left?\nAnswer:",
+          "output": "5",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: A rectangle has a length of 8 cm and a width of 5 cm. What is the area of the rectangle?\nAnswer:",
+          "output": "40",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: Tom buys 4 books at $12 each. He pays with a $50 bill. How much change does he get?\nAnswer:",
+          "output": "2",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: A bakery sells 120 cookies on Monday, 150 on Tuesday, and 90 on Wednesday. What is the total number of cookies sold?\nAnswer:",
+          "output": "360",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: If 3x + 5 = 20, what is the value of x?\nAnswer:",
+          "output": "5",
+          "metadata_task_type": "gsm8k"
+        },
+        {
+          "input": "Question: A car uses 8 gallons of gas to travel 240 miles. How many gallons will it need to travel 360 miles?\nAnswer:",
+          "output": "12",
+          "metadata_task_type": "gsm8k"
+        }
+      ]
+    }
+  ]
+}
