@@ -1,0 +1,90 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{Song2024,Wang2022}
+\citation{Zhang2026,Dhuliawala2024,Chakraborty2025}
+\citation{Ong2024,Hu2024}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\citation{Cobbe2021}
+\citation{Clark2018}
+\citation{Clark2019}
+\citation{Hendrycks2021}
+\citation{Zhang2026}
+\citation{Dhuliawala2024}
+\citation{Chen2025}
+\citation{Chakraborty2025}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Adaptive Decoding Methods}{2}{subsection.2.1}\protected@file@percent }
+\citation{Ong2024}
+\citation{Hu2024}
+\citation{Lu2024}
+\citation{Belinkov2019,Tenney2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces End-to-end pipeline for decoding strategy routing. The system extracts embeddings from input prompts, passes them through a logistic regression classifier to predict the optimal decoding strategy (greedy or sampling), and generates the answer using the predicted strategy. Oracle labels are precomputed offline by running both strategies and verifying correctness.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:fig1}{{1}{3}{End-to-end pipeline for decoding strategy routing. The system extracts embeddings from input prompts, passes them through a logistic regression classifier to predict the optimal decoding strategy (greedy or sampling), and generates the answer using the predicted strategy. Oracle labels are precomputed offline by running both strategies and verifying correctness}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Model Routing in Multi-LLM Systems}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Linear Probing and Prompt Embeddings}{3}{subsection.2.3}\protected@file@percent }
+\citation{Reimers2019}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methods}{4}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Problem Formulation}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Oracle Label Construction}{4}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Classifier Architecture}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Routing Strategy}{4}{subsection.3.4}\protected@file@percent }
+\citation{Cobbe2021}
+\citation{Clark2018}
+\citation{Clark2019}
+\citation{Hendrycks2021}
+\citation{Song2024,Wang2022}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Theoretical Framework for Routing Benefit}{5}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Datasets}{5}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Experimental Setup}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Distribution of optimal decoding strategies across the four datasets. Sampling decoding is optimal for 80-92\% of prompts across all datasets, explaining why routing provides no benefit when evaluated on individual datasets. Error bars show 95\% confidence intervals from 5-fold cross-validation.}}{6}{figure.2}\protected@file@percent }
+\newlabel{fig:fig2}{{2}{6}{Distribution of optimal decoding strategies across the four datasets. Sampling decoding is optimal for 80-92\% of prompts across all datasets, explaining why routing provides no benefit when evaluated on individual datasets. Error bars show 95\% confidence intervals from 5-fold cross-validation}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Baseline accuracies across combined dataset (500 prompts).}}{6}{table.1}\protected@file@percent }
+\newlabel{tab:baseline}{{1}{6}{Baseline accuracies across combined dataset (500 prompts)}{table.1}{}}
+\citation{Song2024}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Main Results}{7}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.1}Baseline Accuracies}{7}{subsubsection.4.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2}Router Performance}{7}{subsubsection.4.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.3}Conditional Routing Benefit}{7}{subsubsection.4.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Analysis}{7}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Strategy Distribution Across Datasets}{7}{subsubsection.4.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Optimal strategy distribution and routing benefit across datasets.}}{7}{table.2}\protected@file@percent }
+\newlabel{tab:strategy_dist}{{2}{7}{Optimal strategy distribution and routing benefit across datasets}{table.2}{}}
+\citation{Wang2022}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Routing benefit (improvement over best single strategy) as a function of sampling optimal rate. Routing only provides benefit (positive values) when the optimal strategy is balanced between 30-70\% sampling optimal. When one strategy dominates (>70\%), routing provides zero benefit over simply using that strategy. Points show individual datasets; the line shows the theoretical prediction based on strategy distribution entropy.}}{8}{figure.3}\protected@file@percent }
+\newlabel{fig:fig3}{{3}{8}{Routing benefit (improvement over best single strategy) as a function of sampling optimal rate. Routing only provides benefit (positive values) when the optimal strategy is balanced between 30-70\% sampling optimal. When one strategy dominates (>70\%), routing provides zero benefit over simply using that strategy. Points show individual datasets; the line shows the theoretical prediction based on strategy distribution entropy}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Why Does Sampling Dominate?}{8}{subsubsection.4.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Error Analysis}{8}{subsubsection.4.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}Computational Efficiency}{8}{subsubsection.4.3.4}\protected@file@percent }
+\citation{Ong2024,Hu2024}
+\citation{Zhang2026}
+\citation{Dhuliawala2024}
+\citation{Chakraborty2025}
+\citation{Wang2022}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{9}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}When Does Routing Help?}{9}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Comparison to Prior Work}{9}{subsection.5.2}\protected@file@percent }
+\bibstyle{plainnat}
+\bibdata{references}
+\bibcite{Belinkov2019}{{1}{2019}{{Belinkov and Glass}}{{}}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Limitations}{10}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Practical Guidelines}{10}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{10}{section.6}\protected@file@percent }
+\bibcite{Chakraborty2025}{{2}{2025}{{Chakraborty et~al.}}{{Chakraborty, Bhatt, Sehwag, Ghosal, Qiu, Wang, Manocha, Huang, Koppel, and Ganesh}}}
+\bibcite{Chen2025}{{3}{2025}{{Chen et~al.}}{{Chen, Zhang, Liu, Wu, Zhang, and Tan}}}
+\bibcite{Clark2019}{{4}{2019}{{Clark et~al.}}{{Clark, Lee, Chang, Kwiatkowski, Collins, and Toutanova}}}
+\bibcite{Clark2018}{{5}{2018}{{Clark et~al.}}{{Clark, Cowhey, Etzioni, Khot, Sabharwal, Schoenick, and Tafjord}}}
+\bibcite{Cobbe2021}{{6}{2021}{{Cobbe et~al.}}{{Cobbe, Kosaraju, Bavarian, Chen, Jun, Kaiser, Plappert, Tworek, Hilton, Nakano, Hesse, and Schulman}}}
+\bibcite{Dhuliawala2024}{{7}{2024}{{Dhuliawala et~al.}}{{Dhuliawala, Kulikov, Yu, Celikyilmaz, Weston, Sukhbaatar, and Lanchantin}}}
+\bibcite{Hendrycks2021}{{8}{2021}{{Hendrycks et~al.}}{{Hendrycks, Burns, Basart, Zou, Mazeika, Song, and Steinhardt}}}
+\bibcite{Hu2024}{{9}{2024}{{Hu et~al.}}{{Hu, Lu, Zhang, Li, and Zhang}}}
+\bibcite{Lu2024}{{10}{2024}{{Lu et~al.}}{{Lu, Li, Yan, Zhang, and Li}}}
+\bibcite{Ong2024}{{11}{2024}{{Ong et~al.}}{{Ong, Almahairi, Wu, Chiang, Wu, Gonzalez, Kadous, and Stoica}}}
+\bibcite{Reimers2019}{{12}{2019}{{Reimers and Gurevych}}{{}}}
+\bibcite{Song2024}{{13}{2024}{{Song et~al.}}{{Song, Meng, Tan, and Peng}}}
+\bibcite{Tenney2019}{{14}{2019}{{Tenney et~al.}}{{Tenney, Das, and Pavlick}}}
+\bibcite{Wang2022}{{15}{2022}{{Wang et~al.}}{{Wang, Wei, Schuurmans, Le, Chi, Narang, Chowdhery, and Zhou}}}
+\bibcite{Zhang2026}{{16}{2026}{{Zhang et~al.}}{{Zhang, Ye, Tenka, Yang, Kong, and Ghai}}}
+\gdef \@abspage@last{11}

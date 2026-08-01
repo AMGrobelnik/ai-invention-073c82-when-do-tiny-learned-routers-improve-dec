@@ -1,0 +1,108 @@
+\begin{thebibliography}{16}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Belinkov and Glass(2019)]{Belinkov2019}
+Y.~Belinkov and J.~Glass.
+\newblock Analysis methods in neural language processing: A survey.
+\newblock \emph{TACL}, 2019.
+
+\bibitem[Chakraborty et~al.(2025)Chakraborty, Bhatt, Sehwag, Ghosal, Qiu, Wang,
+  Manocha, Huang, Koppel, and Ganesh]{Chakraborty2025}
+S.~Chakraborty, S.~Bhatt, U.~M. Sehwag, S.~S. Ghosal, J.~Qiu, M.~Wang,
+  D.~Manocha, F.~Huang, A.~Koppel, and S.~Ganesh.
+\newblock Collab: Controlled decoding using mixture of agents for llm
+  alignment.
+\newblock In \emph{Proceedings of ICLR 2025}, 2025.
+
+\bibitem[Chen et~al.(2025)Chen, Zhang, Liu, Wu, Zhang, and Tan]{Chen2025}
+X.~Chen, Y.~Zhang, Q.~Liu, J.~Wu, F.~Zhang, and T.~Tan.
+\newblock Mixture of decoding: An attention-inspired adaptive decoding strategy
+  to mitigate hallucinations in large vision-language models.
+\newblock In \emph{ACL Findings 2025}, 2025.
+
+\bibitem[Clark et~al.(2019)Clark, Lee, Chang, Kwiatkowski, Collins, and
+  Toutanova]{Clark2019}
+C.~Clark, K.~Lee, M.-W. Chang, T.~Kwiatkowski, M.~Collins, and K.~Toutanova.
+\newblock Boolq: Exploring the surprising difficulty of natural yes/no
+  questions.
+\newblock In \emph{Proceedings of NAACL 2019}, pages 2924--2936, 2019.
+
+\bibitem[Clark et~al.(2018)Clark, Cowhey, Etzioni, Khot, Sabharwal, Schoenick,
+  and Tafjord]{Clark2018}
+P.~Clark, I.~Cowhey, O.~Etzioni, T.~Khot, A.~Sabharwal, C.~Schoenick, and
+  O.~Tafjord.
+\newblock Think you have solved question answering? try arc, the ai2 reasoning
+  challenge.
+\newblock \emph{arXiv preprint arXiv:1803.05457}, 2018.
+
+\bibitem[Cobbe et~al.(2021)Cobbe, Kosaraju, Bavarian, Chen, Jun, Kaiser,
+  Plappert, Tworek, Hilton, Nakano, Hesse, and Schulman]{Cobbe2021}
+K.~Cobbe, V.~Kosaraju, M.~Bavarian, M.~Chen, H.~Jun, L.~Kaiser, M.~Plappert,
+  J.~Tworek, J.~Hilton, R.~Nakano, C.~Hesse, and J.~Schulman.
+\newblock Training verifiers to solve math word problems.
+\newblock \emph{arXiv preprint arXiv:2110.14168}, 2021.
+
+\bibitem[Dhuliawala et~al.(2024)Dhuliawala, Kulikov, Yu, Celikyilmaz, Weston,
+  Sukhbaatar, and Lanchantin]{Dhuliawala2024}
+S.~Dhuliawala, I.~Kulikov, P.~Yu, A.~Celikyilmaz, J.~Weston, S.~Sukhbaatar, and
+  J.~Lanchantin.
+\newblock Adaptive decoding via latent preference optimization.
+\newblock \emph{arXiv preprint arXiv:2411.09661}, 2024.
+
+\bibitem[Hendrycks et~al.(2021)Hendrycks, Burns, Basart, Zou, Mazeika, Song,
+  and Steinhardt]{Hendrycks2021}
+D.~Hendrycks, C.~Burns, S.~Basart, A.~Zou, M.~Mazeika, D.~Song, and
+  J.~Steinhardt.
+\newblock Measuring massive multitask language understanding.
+\newblock In \emph{Proceedings of ICLR 2021}, 2021.
+
+\bibitem[Hu et~al.(2024)Hu, Lu, Zhang, Li, and Zhang]{Hu2024}
+Q.~Hu, G.~Lu, P.~Zhang, S.~Li, and Y.~Zhang.
+\newblock Routerbench: A benchmark for multi-llm routing system.
+\newblock \emph{arXiv preprint arXiv:2403.12031}, 2024.
+
+\bibitem[Lu et~al.(2024)Lu, Li, Yan, Zhang, and Li]{Lu2024}
+J.~Lu, C.~Li, H.~Yan, X.~Zhang, and L.~Li.
+\newblock Routing to the right model: A learning-based approach.
+\newblock \emph{arXiv preprint arXiv:2402.05845}, 2024.
+
+\bibitem[Ong et~al.(2024)Ong, Almahairi, Wu, Chiang, Wu, Gonzalez, Kadous, and
+  Stoica]{Ong2024}
+I.~Ong, A.~Almahairi, V.~Wu, W.-L. Chiang, T.~Wu, J.~E. Gonzalez, W.~Kadous,
+  and I.~Stoica.
+\newblock Routellm: Learning to route llms with preference data.
+\newblock \emph{arXiv preprint arXiv:2406.18665}, 2024.
+
+\bibitem[Reimers and Gurevych(2019)]{Reimers2019}
+N.~Reimers and I.~Gurevych.
+\newblock Sentence-bert: Sentence embeddings using siamese bert-networks.
+\newblock In \emph{Proceedings of EMNLP-IJCNLP 2019}, pages 3982--3992, 2019.
+
+\bibitem[Song et~al.(2024)Song, Meng, Tan, and Peng]{Song2024}
+Y.~Song, Y.~Meng, M.~Tan, and N.~Peng.
+\newblock The good, the bad, and the greedy: Evaluation of llms should not
+  ignore non-determinism.
+\newblock \emph{arXiv preprint arXiv:2407.10457}, 2024.
+
+\bibitem[Tenney et~al.(2019)Tenney, Das, and Pavlick]{Tenney2019}
+I.~Tenney, D.~Das, and E.~Pavlick.
+\newblock Bert rediscovers the classical nlp pipeline.
+\newblock In \emph{Proceedings of NAACL 2019}, 2019.
+
+\bibitem[Wang et~al.(2022)Wang, Wei, Schuurmans, Le, Chi, Narang, Chowdhery,
+  and Zhou]{Wang2022}
+X.~Wang, J.~Wei, D.~Schuurmans, Q.~Le, E.~Chi, S.~Narang, A.~Chowdhery, and
+  D.~Zhou.
+\newblock Self-consistency improves language models as mathematical reasoners.
+\newblock In \emph{Proceedings of EMNLP 2022}, 2022.
+
+\bibitem[Zhang et~al.(2026)Zhang, Ye, Tenka, Yang, Kong, and Ghai]{Zhang2026}
+S.~Zhang, Z.~Ye, S.~Tenka, A.~Z.~H. Yang, S.~Kong, and U.~Ghai.
+\newblock Learning adaptive llm decoding.
+\newblock \emph{arXiv preprint arXiv:2603.09065}, 2026.
+
+\end{thebibliography}
